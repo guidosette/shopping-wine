@@ -5,12 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: "AIzaSyAipbmmusQHcn-BxjEjpYRjJSWEWdENnJg",
-    authDomain: "lp-start-kit.firebaseapp.com",
-    projectId: "lp-start-kit",
-    storageBucket: "lp-start-kit.appspot.com",
-    messagingSenderId: "771347337730",
-    appId: "1:771347337730:web:e87630ba1c27f41f394d1b"
+    apiKey: "AIzaSyAFfNaDpbXIabZ2TGT4kvPFTMufZTjenvA",
+    authDomain: "shopping-wine.firebaseapp.com",
+    projectId: "shopping-wine",
+    storageBucket: "shopping-wine.appspot.com",
+    messagingSenderId: "127042648912",
+    appId: "1:127042648912:web:a8d3f902b40d21264b0a55",
+    measurementId: "G-WBQHDYQERK"
   }
 };
 

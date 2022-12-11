@@ -26,7 +26,7 @@ export class AdminManager extends AdminBaseManager {
   }
 
   getAdminEmail(): string {
-    return "sviluppo@powerapp.it";
+    return "guido.fanfani7@gmail.com";
   }
 
   getPrimaryColor() {
@@ -62,12 +62,10 @@ export class AdminManager extends AdminBaseManager {
 
   // Cloud Build -> Modifica Trigger -> show preview webhook
   cloudBuildKeyTrigger(): string {
-    // TODO
-    return "AIzaSyAkXaZV69O0uQa_BwyVqY9fo9adQtILvrw";
+    return "AIzaSyDMoWTx8GHLS7k1rAseOmHABpjF6zjSwaU";
   }
   cloudBuildSecretTrigger(): string {
-    // TODO
-    return "AxXuFF7O_FS-yMP5GzxRAuZFYlB2dbOh";
+    return "OdfGNVlSXWyd-Edqq0fOU006dozwzy6E";
   }
 
   getSeoCollections(): string[] {

@@ -9,6 +9,7 @@
     "test": "ng test",
     "init-project": "npm run deploy-rules && npm run deploy-index && npm run deploy-rules-storage && npm install --global replace-in-files-cli",
     "pull-index": "type nul > firestore.indexes.json && firebase firestore:indexes >> firestore.indexes.json",
+    "deploy-index": "firebase deploy --only firestore:indexes -P default",
     "deploy-rules": "firebase deploy --only firestore:rules -P default",
     "replace-rules-temp": "replace-in-files --string='firestore.rules' --regex='/g' --replacement='firestore_temp.rules' firebase.json",
     "deploy-rules-temp": "npm run replace-rules-temp && npm run deploy-rules",

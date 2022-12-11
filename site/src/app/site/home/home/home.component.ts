@@ -1,7 +1,5 @@
 import { Component, Injector } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { News } from 'src/app/backoffice/news/news';
-import { NewsManager, NewsManagerParams } from 'src/app/backoffice/news/news-manager';
 import { OriginEnum } from 'src/app/backoffice/shared/originEnum';
 import { BaseListParams } from 'src/app/FirebaseBackofficeLib/utils/components/base-list/base-list.component';
 import { GeneralActiveClass, GeneralActiveEnum } from 'src/app/FirebaseBackofficeLib/utils/enum/generalActiveEnum';
@@ -15,11 +13,9 @@ import { OriginHomeBaseComponent } from 'src/app/PaUtils/component/origin-home-b
 })
 export class HomeComponent extends OriginHomeBaseComponent {
 
-  public news: News[] = [];
   constructor(
     injector: Injector,
     protected override router: Router, protected override route: ActivatedRoute,
-    private newsMansager: NewsManager
   ) {
     super(injector, router, route);
     this.originEnum = OriginEnum.Home;
@@ -29,9 +25,8 @@ export class HomeComponent extends OriginHomeBaseComponent {
   override async loadData() {
     var generalActiveClass = new GeneralActiveClass(undefined).getList(true);
     var generalClass = generalActiveClass.filter((v) => v.id === GeneralActiveEnum.Attivo)[0];
-    var paramsBase = new BaseListParams<News>(undefined, undefined, "order", FirestoreManagerBase.orderAscKey);
-    var params = new NewsManagerParams(paramsBase, undefined, undefined, generalClass);
-    this.news = await this.newsMansager.getListPromise(params);
+    // var paramsBase = new BaseListParams<News>(undefined, undefined, "order", FirestoreManagerBase.orderAscKey);
+    // var params = new NewsManagerParams(paramsBase, undefined, undefined, generalClass);
   }
 
 }

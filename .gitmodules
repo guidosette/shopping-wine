@@ -1,0 +1,12 @@
+[submodule "functions/src/FirebaseFunctionsLib"]
+	path = functions/src/FirebaseFunctionsLib
+	url = git@github.com:PowerAppITA/FirebaseFunctionsLib.git
+[submodule "site/src/app/FirebaseBackofficeLib"]
+	path = site/src/app/FirebaseBackofficeLib
+	url = git@github.com:PowerAppITA/FirebaseBackofficeLib.git
+[submodule "site/src/app/PaUtils"]
+	path = site/src/app/PaUtils
+	url = git@github.com:PowerAppITA/PaUtils.git
+[submodule "site/src/app/VenditoreDigitaleShared"]
+	path = site/src/app/VenditoreDigitaleShared
+	url = git@github.com:PowerAppITA/VenditoreDigitaleShared.git
