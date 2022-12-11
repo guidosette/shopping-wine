@@ -1,0 +1,1 @@
+:root{--primary-color: #a83271;--accent-color: #242524;--black-color: #242524;--powerapp-gradient: linear-gradient(111.34deg, var(--primary-color) 0%, var(--accent-color) 100%)}#site .bg-light{background-color:#e5e5e5 !important}#site .bg-primary{background-color:var(--primary-color) !important}#site .text-primary{color:var(--primary-color) !important}

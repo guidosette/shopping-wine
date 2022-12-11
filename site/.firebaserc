@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "shopping-wine",
+    "demo": "lp-start-kit"
+  },
+  "targets": {}
+}

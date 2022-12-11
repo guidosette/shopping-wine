@@ -1,0 +1,117 @@
+html,
+body {
+  overflow-x: hidden !important;
+  width: 100%;
+  max-width: 100%;
+  font-family: Roboto;
+}
+
+#site {
+
+  img.fit-cover {
+    object-fit: cover;
+  }
+
+  p {
+    font-style: normal;
+    font-weight: normal;
+    // font-size: 22px;
+    line-height: 32px;
+    font-size: 1.125rem;
+    /* or 167% */
+  }
+
+  @media (max-width: 768px) {
+    p {
+      font-size: 18px;
+      line-height: 28px;
+      /* or 167% */
+    }
+  }
+
+  ::marker {
+    font-size: 18px !important;
+    font-weight: bold;
+  }
+
+  a {
+    text-decoration: none;
+
+    &:hover {
+      color: var(--primary-color) !important;
+    }
+  }
+
+  h1 {
+    font-style: normal;
+    font-weight: bold;
+    // font-size: 36px;
+    // line-height: 42px;
+    // display: flex;
+    align-items: center;
+    font-size: 2.5rem;
+    line-height: 1.125;
+  }
+
+  h2 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 26px;
+    line-height: 31px;
+    /* identical to box height */
+
+    // display: flex;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      line-height: 50px;
+    }
+
+  }
+
+  .container {
+    max-width: 1200px;
+  }
+
+  .btn-accent {
+    background-color: #FCA311;
+    color: #fff !important;
+    transition: all .2s ease-in-out !important;
+    font-weight: bold !important;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    padding: 10px 50px !important;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      font-size: 1.2rem;
+
+    }
+  }
+
+  /* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #2e5aa1 #ffffff;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #ffffff;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #2e5aa1;
+    border-radius: 10px;
+    border: 3px solid #ffffff;
+  }
+
+}

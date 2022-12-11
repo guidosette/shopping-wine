@@ -1,0 +1,121 @@
+{
+  "indexes": [
+    {
+      "collectionGroup": "contacts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "originId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "insertDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "contacts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "querySearch",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "insertDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "contacts",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "querySearch",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "originId",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "insertDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "customers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "querySearch",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "insertDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "customers",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "roleIds",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "insertDate",
+          "order": "DESCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "origins",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "idTranslate",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "id",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "origins",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "isMenu",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "order",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "origins",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "querySearch",
+          "arrayConfig": "CONTAINS"
+        },
+        {
+          "fieldPath": "name",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ],
+  "fieldOverrides": []
+}

@@ -1,0 +1,43 @@
+.social-list-icon {
+  padding: 0 !important;
+  float: right;
+
+  fa-icon:hover {
+    color: #ffffff !important;
+  }
+  
+  .social-list-icon-item {
+    width: 38px !important;
+    height: 38px !important;
+    border: 2px solid #ffffff !important;
+    position: relative !important;
+    border-radius: 100%;
+    margin: 0 10px !important;
+    transition: all .25s ease;
+
+    @media (max-width: 768px){
+
+      width: 30px !important;
+      height: 30px !important;
+      border: 1px solid #ffffff !important;
+
+      svg{
+        height: 15px!important;
+      }
+    }
+
+    a {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+
+
+}

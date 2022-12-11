@@ -1,0 +1,87 @@
+<app-base-detail-structure [instance]="this">
+
+    <base-detail-structure-form-body [formGroup]="formGroup">
+        <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="25px" fxFlexFill>
+
+            <!-- id -->
+            <mat-form-field [hidden]="true">
+                <input matInput readonly type="text" readonly placeholder="Id" formControlName="id" id="id">
+            </mat-form-field>
+
+            <div fxLayout="row" fxLayoutGap="25px" fxFlexFill>
+                <!-- insertDate -->
+                <mat-form-field fxFlex>
+                    <input matInput type="text" placeholder="Creato il" formControlName="insertDate" id="insertDate">
+                </mat-form-field>
+            </div>
+
+            <!-- originId -->
+            <mat-form-field fxFlex>
+                <mat-select [placeholder]="'Pagina'" formControlName="originId" id="originId">
+                    <mat-option *ngFor="let c of originClass" [value]="c.id">
+                        <span class="badge badge-pill space" [ngStyle]="c?.getStyle()">
+                            {{ c?.getName() }}
+                        </span>
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="hasError('originId', 'required')">Il campo provenienza è obbligatorio</mat-error>
+            </mat-form-field>
+
+            <div fxLayout="row" fxLayoutAlign="start center" fxLayoutGap="25px" fxFlexFill>
+                <!-- name-->
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Nome" formControlName="name" id="name">
+                    <mat-error *ngIf="hasError('name', 'required')">Il campo nome è obbligatorio</mat-error>
+                </mat-form-field>
+
+                <!-- cognome-->
+                <mat-form-field>
+                    <input matInput type="text" placeholder="Cognome" formControlName="surname" id="surname">
+                    <mat-error *ngIf="hasError('surname', 'required')">Il campo nome è obbligatorio</mat-error>
+                </mat-form-field>
+            </div>
+
+            <!-- email-->
+            <mat-form-field>
+                <input matInput readonly type="text" placeholder="Email" formControlName="email" id="email">
+                <mat-error *ngIf="hasError('email', 'required')">Il campo email è obbligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- phone-->
+            <mat-form-field>
+                <input matInput readonly type="text" placeholder="Telefono" formControlName="phone" id="phone">
+                <mat-error *ngIf="hasError('phone', 'required')">Il campo telefono è obbligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- city-->
+            <mat-form-field>
+                <input matInput readonly type="text" placeholder="Città" formControlName="city" id="city">
+                <mat-error *ngIf="hasError('city', 'required')">Il campo città è obbligatorio</mat-error>
+            </mat-form-field>
+
+            <!-- message-->
+            <mat-form-field>
+                <textarea matInput readonly type="text" placeholder="Messaggio" formControlName="message" id="message"
+                    cdkTextareaAutosize cdkAutosizeMinRows="6"></textarea>
+                <mat-error *ngIf="hasError('message', 'required')">Il azienda messaggio è obbligatorio</mat-error>
+            </mat-form-field>
+
+            <div fxLayout="row" fxFlexFill fxLayoutGap="25px">
+                <!-- privacy -->
+                <mat-checkbox matInput readonly formControlName="privacy" id="privacy">
+                    Privacy Policy
+                </mat-checkbox>
+            </div>
+
+            <div fxLayout="row" fxFlexFill fxLayoutGap="25px">
+                <!-- privacy2 -->
+                <mat-checkbox matInput readonly formControlName="privacy2" id="privacy2">
+                    Consenso
+                </mat-checkbox>
+            </div>
+
+        </div>
+
+    </base-detail-structure-form-body>
+
+</app-base-detail-structure>

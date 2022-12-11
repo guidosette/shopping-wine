@@ -1,0 +1,12 @@
+<app-pre-loading></app-pre-loading>
+
+<section id="site">
+
+    <app-menu *ngIf="siteServiceData?.headerShow" 
+    [siteMenu]="siteMenu"></app-menu>
+
+    <router-outlet></router-outlet>
+
+    <app-footer></app-footer>
+
+</section>

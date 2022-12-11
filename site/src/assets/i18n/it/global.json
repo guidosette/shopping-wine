@@ -1,0 +1,39 @@
+{
+  "footer": {
+  },
+  "form": {
+    "fields": {
+      "first_name": {
+        "placeholder": "Nome",
+        "error_required": "Il campo Nome è obbligatorio"
+      },
+      "last_name": {
+        "placeholder": "Cognome",
+        "error_required": "Il campo Cognome è obbligatorio"
+      },
+      "email": {
+        "placeholder": "E-mail",
+        "error_required": "Il campo E-mail è obbligatorio",
+        "error_email": "Non è un E-mail valida"
+      },
+      "phone": {
+        "placeholder": "Telefono",
+        "error_required": "Il campo Telefono è obbligatorio"
+      },
+      "city": {
+        "placeholder": "Città",
+        "error_required": "Il campo Città è obbligatorio"
+      },
+      "message": {
+        "placeholder": "Messaggio",
+        "error_required": "Il campo Messaggio è obbligatorio",
+        "error_minLength": "Il campo Messaggio deve essere di almeno 10 caratteri"
+      },
+      "acceptance_privacy": {
+        "placeholder": "Dichiaro di aver letto l'<a href=\"https://www.iubenda.com/privacy-policy/83430427\" target=\"_blank\" title=\"Informativa privacy | MYWAY\">informativa privacy</a> *",
+        "error_required": "Il campo Privacy Policy è obbligatorio"
+      },
+      "button": "OK, INVIA!"
+    }
+  }
+}

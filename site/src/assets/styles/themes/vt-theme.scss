@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+@import '../variables/colors/index';
+
+
+html {
+
+  font-size: 18px;
+  overflow-x: hidden;
+
+  @media (max-width: 425px) {
+    font-size: 16px;
+  }
+
+}
+
+body {
+
+  font-size: 18px;
+  overflow-x: hidden;
+  // Uncomment below for dark theme.
+  // background: #303030;
+  // color: white;
+
+  @media (max-width: 425px) {
+    font-size: 16px;
+  }
+
+}
+
+
+// Theme Overrides
+// Import library functions for theme creation.
+@import '~@angular/material/theming';
+
+// Include non-theme styles for core.
+@include mat-core();
+
+// Define your application's custom theme.
+$primary: mat-palette($vt-primary);
+$accent: mat-palette($vt-accent);
+
+
+// SWAPPING THEMES
+// NOTE: Comment the below for DARK THEME
+$theme: mat-light-theme($primary, $accent);
+
+// NOTE: Uncomment below for the DARK THEME
+// $theme: mat-dark-theme($primary, $accent);
+// body {
+//   background: #303030;
+//   color: white;
+// }
+
+
+// Include theme styles for Angular Material components.
+@include angular-material-theme($theme);

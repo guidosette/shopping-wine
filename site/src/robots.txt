@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /backoffice/
+Disallow: /login
+Disallow: /forgot-password
+Sitemap: https://shopping-wine.it/sitemap.xml

@@ -1,0 +1,59 @@
+{
+  "name": "functions",
+  "scripts": {
+    "lint": "eslint --ext .js,.ts . --fix",
+    "build": "tsc",
+    "ts:w": "tsc --watch",
+    "serve": "npm run build && firebase emulators:start --only functions",
+    "shell": "npm run build && firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions -P default",
+    "deploy-demo": "firebase deploy --only functions -P demo",
+    "deploy-all": "npm run deploy-demo && npm run deploy",
+    "deploy-test": "firebase deploy --only functions:bigQParseData",
+    "logs": "firebase functions:log"
+  },
+  "engines": {
+    "node": "14"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@google-cloud/bigquery": "^6.0.2",
+    "@google-cloud/firestore": "^4.15.1",
+    "@google-cloud/pubsub": "^3.1.0",
+    "@google-cloud/storage": "^6.4.2",
+    "axios": "^0.27.2",
+    "cors": "^2.8.5",
+    "cross-fetch": "^3.1.5",
+    "express": "^4.18.1",
+    "firebase-admin": "^9.12.0",
+    "firebase-functions": "^3.23.0",
+    "fs": "^0.0.1-security",
+    "googleapis": "^92.0.0",
+    "handlebars": "^4.7.7",
+    "json2csv": "^5.0.7",
+    "moment": "^2.29.4",
+    "moment-timezone": "^0.5.37",
+    "node-rest-client": "^3.1.1",
+    "nodemailer": "^6.7.8",
+    "path": "^0.12.7",
+    "reflect-metadata": "^0.1.13",
+    "rxjs": "^7.5.6",
+    "sitemap": "^7.1.1",
+    "typed-rest-client": "^1.8.9",
+    "typedi": "^0.10.0",
+    "xlsx": "^0.18.5",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.4",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
+    "eslint": "^8.23.0",
+    "eslint-config-google": "^0.14.0",
+    "eslint-plugin-import": "^2.26.0",
+    "firebase-functions-test": "^2.3.0",
+    "typescript": "^4.8.2"
+  },
+  "private": true
+}

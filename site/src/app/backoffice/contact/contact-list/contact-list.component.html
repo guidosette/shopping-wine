@@ -1,0 +1,63 @@
+<base-list-structure [instance]="this" matSort>
+
+  <base-list-structure-title>Lista <strong>Contatti</strong></base-list-structure-title>
+
+  <base-list-structure-actions>
+    <!-- <a mat-raised-button (click)="newItem()" color="primary" class="mx-2">Nuovo</a> -->
+
+    <a mat-raised-button (click)="exportData()" color="primary" class="mx-2">
+      <mat-icon matListIcon>file_upload</mat-icon>
+      Esporta
+    </a>
+  </base-list-structure-actions>
+
+  <base-list-structure-filters>
+    <div class="row">
+
+      <mat-form-field class="col-md-6">
+        <mat-select placeholder="Pagina" [(value)]="selectedOrigin">
+          <mat-option *ngFor="let o of originClass" [value]="o">
+            <span class="badge badge-pill space" [ngStyle]="o?.getStyle()">
+              {{ o.label }}
+            </span>
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+  </base-list-structure-filters>
+
+  <base-list-structure-table-body>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>Nome</th>
+      <td mat-cell *matCellDef="let item">{{ item.getName() }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>Email</th>
+      <td mat-cell *matCellDef="let item">{{ item.email }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="originId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>Pagina</th>
+      <td mat-cell *matCellDef="let item">
+        <span class="badge badge-pill space" [ngStyle]="item?.getOriginStyle()">
+          {{ item?.getNameOrigin() }}
+        </span>
+        <br />
+        <small *ngIf="item.categoryId">({{item.category?.getName()}})</small>
+        <small *ngIf="item.jobId">({{item.job?.getName()}})</small>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="insertDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header disabled>Creato</th>
+      <td mat-cell *matCellDef="let item">
+        {{ item.insertDate | date: "dd/MM/yyyy HH:mm"}}
+      </td>
+    </ng-container>
+
+  </base-list-structure-table-body>
+
+</base-list-structure>

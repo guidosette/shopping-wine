@@ -1,0 +1,153 @@
+<div fxLayout="row" fxLayout.lt-md="column" fxFlexAlign="center center" fxLayoutGap="100px" fxLayoutGap.lt-md="0px"
+  class="mt-5">
+
+  <div fxFlex>
+    <div class="mx-0 px-0">
+      <div class="text-start mb-4">
+        <h2 class="text-start" *ngIf="title">{{title}}</h2>
+        <p class="text-start" *ngIf="subTitle">{{subTitle}}</p>
+      </div>
+      <div>
+
+        <app-loading *ngIf="isLoading"></app-loading>
+
+        <form [formGroup]="formGroup" autocomplete="off" novalidate (submit)="doCreateUpdate(formGroup.value)">
+
+          <mat-card-content fxLayout="column">
+
+            <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="25px" fxLayoutGap.lt-sm="0px" fxFlexFill>
+
+              <!--id-->
+              <mat-form-field [hidden]="true" appearance="outline">
+                <input matInput type="text" readonly placeholder="Id" formControlName="id" id="id">
+              </mat-form-field>
+
+              <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start center" fxLayoutGap="25px"
+                fxLayoutGap.lt-sm="0px" fxFlexFill>
+                <!--name-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Nome </mat-label>
+                  <input matInput type="text" placeholder="Nome" formControlName="name" id="name">
+                  <mat-error *ngIf="hasError('name', 'required')">Il campo Nome è obbligatorio</mat-error>
+                </mat-form-field>
+
+                <!--surname-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Cognome </mat-label>
+                  <input matInput type="text" placeholder="Cognome" formControlName="surname" id="surname">
+                  <mat-error *ngIf="hasError('surname', 'required')">Il campo Cognome è obbligatorio</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start center" fxLayoutGap="25px"
+                fxLayoutGap.lt-sm="0px" fxFlexFill>
+                <!--email-->
+                <mat-form-field appearance="outline">
+                  <mat-label>E-mail </mat-label>
+                  <input matInput type="text" placeholder="E-mail" formControlName="email" id="email" (keyup)="onChangeEmail()">
+                  <mat-error *ngIf="hasError('email', 'required')">Il campo E-mail è obbligatorio</mat-error>
+                  <!-- <mat-error *ngIf="hasError('email', 'email')">Il campo E-mail non è valido</mat-error> -->
+                  <mat-error *ngIf="hasError('email', 'pattern')">Il campo E-mail non è valido</mat-error>
+                  <mat-icon matSuffix *ngIf="!formGroup.get('email')?.errors" color="success">check_circle</mat-icon>
+                </mat-form-field>
+
+                <!--phone-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Telefono </mat-label>
+                  <input matInput type="tel" placeholder="Telefono" formControlName="phone" id="phone">
+                  <mat-error *ngIf="hasError('phone', 'required')">Il campo Telefono è obbligatorio</mat-error>
+                </mat-form-field>
+
+              </div>
+
+              <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start center" fxLayoutGap="25px"
+                fxLayoutGap.lt-sm="0px" fxFlexFill>
+                <!--city-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Città </mat-label>
+                  <input matInput type="text" placeholder="Città" formControlName="city" id="city">
+                  <mat-error *ngIf="hasError('city', 'required')">Il campo Città è obbligatorio</mat-error>
+                </mat-form-field>
+
+                <!--companyName-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Azienda </mat-label>
+                  <input matInput type="text" placeholder="Azienda" formControlName="companyName" id="companyName">
+                  <mat-error *ngIf="hasError('companyName', 'required')">Il campo Azienda è obbligatorio</mat-error>
+                </mat-form-field>
+              </div>
+
+              <div fxLayout="row" fxLayout.lt-sm="column" fxLayoutAlign="start center" fxLayoutGap="25px"
+                fxLayoutGap.lt-sm="0px" fxFlexFill>
+                <!--message-->
+                <mat-form-field appearance="outline">
+                  <mat-label>Messaggio </mat-label>
+                  <textarea matInput type="text" placeholder="Messaggio" formControlName="message"
+                    id="message"></textarea>
+                  <mat-error *ngIf="hasError('message', 'required')">Il campo Messaggio è obbligatorio</mat-error>
+                  <mat-error *ngIf="hasError('message', 'minlength')">Il campo Messaggio deve essere di almeno 10
+                    caratteri
+                  </mat-error>
+
+                </mat-form-field>
+              </div>
+
+              <div fxLayout="row" fxFlexFill fxLayoutGap="25px" class="mb-3">
+                <!-- privacy -->
+                <div class="mat-form-field">
+                  <mat-checkbox matInput formControlName="privacy" id="privacy">
+                    Acconsento al <a [href]="privacyUrlPath" target="_blank">trattamento dati personali</a> <br>
+                    <small>Questo consenso può essere revocato in qualsiasi momento utilizzando il link di
+                      annullamento dell’iscrizione che trovi alla fine delle nostre mail.</small>
+                  </mat-checkbox>
+                  <mat-error *ngIf="hasError('privacy', 'required')">Il campo Privacy è obbligatorio</mat-error>
+                  <mat-error *ngIf="hasError('privacy', 'requiredTrue')">Il campo Privacy è obbligatorio</mat-error>
+                </div>
+              </div>
+ 
+              <div class="mat-form-field mb-3">
+                <re-captcha class="recaptcha mb-3" formControlName="recaptchaReactive" siteKey="{{recaptcha}}" (resolved)="handleToken('Reactive form mode resolved', $event)" (onerror)="onErrorRecaptcha($event)">
+                </re-captcha>
+                <mat-error *ngIf="hasError('recaptchaReactive', 'required')">Il campo reCAPTCHA è obbligatorio</mat-error>
+              </div>
+
+            </div>
+
+
+            <mat-card-actions *ngIf="getShowActions()" fxLayout="row" fxFlexFill>
+              <button mat-raised-button color="primary" type="submit" [disabled]="!formGroup.valid"
+                *ngIf="model?.isNew() && showActionsCreate">
+                {{createButtonName}}
+                <!-- <mat-icon mat-raised-button>add_circle_outline</mat-icon> -->
+              </button>
+              <button mat-raised-button type="primary" color="primary" [disabled]="!formGroup.valid"
+                *ngIf="!model?.isNew() && showActionsEdit">
+                {{editButtonName}}
+                <!-- <mat-icon mat-raised-button>edit</mat-icon> -->
+              </button>
+              <button mat-raised-button type="button" color="warn" (click)="delete(model)"
+                *ngIf="!model?.isNew() && showActionsDelete">
+                {{deleteButtonName}}
+                <mat-icon mat-raised-button>delete</mat-icon>
+              </button>
+            </mat-card-actions>
+            <mat-card-actions fxLayout="row" fxFlexFill>
+              <div class="space">
+                <ng-content select="base-detail-structure-actions-other"></ng-content>
+              </div>
+            </mat-card-actions>
+
+
+            <mat-card-actions fxLayout="row" fxFlexFill>
+              <mat-error *ngIf="responseError">{{responseError}}</mat-error>
+            </mat-card-actions>
+          </mat-card-content>
+        </form>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

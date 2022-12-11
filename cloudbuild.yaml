@@ -1,0 +1,63 @@
+steps:
+# Install Angular cli
+- name: 'gcr.io/cloud-builders/npm:latest'
+  args: ['install','-g','@angular/cli@12.1.1']
+# Install replace-cli
+- name: 'gcr.io/cloud-builders/npm:latest'
+  args: ['install','-g','replace-in-files-cli']
+# Install Dependencies
+- name: 'gcr.io/cloud-builders/npm:latest'
+  args: ['install']
+  dir: "site"
+- name: 'gcr.io/cloud-builders/npm:latest'
+  args: ['ci']
+  dir: "site"
+# Change config submodule
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - -c
+  - |
+    git config -f .gitmodules submodule.functions/src/FirebaseFunctionsLib.url https://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@github.com/PowerAppITA/FirebaseFunctionsLib.git
+    git config -f .gitmodules submodule.site/src/app/PaUtils.url https://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@github.com/PowerAppITA/PaUtils.git
+    git config -f .gitmodules submodule.site/src/app/FirebaseBackofficeLib.url https://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@github.com/PowerAppITA/FirebaseBackofficeLib.git
+    git config -f .gitmodules submodule.site/src/app/VenditoreDigitaleShared.url https://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@github.com/PowerAppITA/VenditoreDigitaleShared.git
+  # Install submodule
+- name: 'gcr.io/cloud-builders/git'
+  entrypoint: 'bash'
+  args:
+  - -c
+  - |
+    git submodule update --init
+  dir: "site"
+# replace rules temp
+- name: node:16.14.0
+  entrypoint: npm
+  args: ['run', 'replace-rules-temp']
+  dir: 'site'
+# Deploy Rules
+- name: 'okumaonome/firebase-tools'  
+  args: ['firebase', 'deploy', '--only', 'firestore:rules', '-P', 'default', '--token', '$_FIREBASE_TOKEN']
+  dir: 'site'
+# Prerender
+- name: node:16.14.0
+  entrypoint: npm
+  args: ['run', 'prerender-complete']
+  dir: 'site'
+# Deploy host
+- name: 'okumaonome/firebase-tools'  
+  args: ['firebase', 'deploy', '--only', 'hosting', '-P', 'default', '--token', '$_FIREBASE_TOKEN']
+  dir: "site"
+# replace rules prod
+- name: node:16.14.0
+  entrypoint: npm
+  args: ['run', 'replace-rules-prod']
+  dir: 'site'
+# Deploy Rules
+- name: 'okumaonome/firebase-tools'  
+  args: ['firebase', 'deploy', '--only', 'firestore:rules', '-P', 'default', '--token', '$_FIREBASE_TOKEN']
+  dir: 'site'
+options:
+  logging: CLOUD_LOGGING_ONLY
+  machineType: E2_HIGHCPU_32
+timeout: 30m

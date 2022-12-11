@@ -1,0 +1,24 @@
+{
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "hosting": {
+    "public": "site/dist/site/browser",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+			  "source"  : "/sitemap.xml",
+			  "function": "serveSitemap"
+			},
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ]
+  }
+}

@@ -1,0 +1,35 @@
+@import './primary.scss';
+@import './accent.scss';
+
+:root {
+  --primary-color: #a83271;
+  --accent-color: #242524;
+  --black-color: #242524;
+  --powerapp-gradient: linear-gradient(111.34deg, var(--primary-color) 0%, var(--accent-color) 100%);
+}
+
+#site {
+
+  .bg-light {
+    background-color: #e5e5e5 !important;
+  }
+
+  .bg-primary {
+    background-color: var(--primary-color) !important;
+  }
+
+  .text-primary {
+    color: var(--primary-color) !important;
+  }
+
+  .bg-white {
+    background-color: #ffffff !important;
+  }
+
+  .btn-outline-white {
+    color: #fff !important;
+    background-color: transparent !important;
+    background-image: none !important;
+    border: 2px solid #fff !important;
+  }
+}
